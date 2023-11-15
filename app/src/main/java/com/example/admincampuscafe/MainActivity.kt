@@ -31,12 +31,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AdminProfileActivity::class.java)
             startActivity(intent)
         }
-        binding.addNewUserButton.setOnClickListener {
-            val intent = Intent(this, CreateUserActivity::class.java)
-            startActivity(intent)
-        }
 
-        binding.pendingOrderTextView.setOnClickListener {
+        binding.pendingOrderButton.setOnClickListener {
             val intent = Intent(this, PendingOrderActivity::class.java)
             startActivity(intent)
         }

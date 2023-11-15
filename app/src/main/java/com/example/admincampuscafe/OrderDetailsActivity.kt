@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.admincampuscafe.adapter.OrderDetailsAdapter
 import com.example.admincampuscafe.databinding.ActivityOrderDetailsBinding
-import com.example.admincampuscafe.databinding.ActivityOrderStatusBinding
 import com.example.campuscafe.model.OrderDetails
 
 class OrderDetailsActivity : AppCompatActivity() {
