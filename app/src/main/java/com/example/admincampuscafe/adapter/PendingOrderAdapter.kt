@@ -1,18 +1,24 @@
 package com.example.admincampuscafe.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.admincampuscafe.databinding.PendingOrdersItemBinding
 
 class PendingOrderAdapter(
-    private val customerNames: ArrayList<String>,
-    private val quantity: ArrayList<String>,
-    private val foodImage: ArrayList<Int>,
-    private val context: Context
+    private val context: Context,
+    private val customerNames: MutableList<String>,
+    private val total: MutableList<String>,
+    private val itemClicked: onItemClicked
 ): RecyclerView.Adapter<PendingOrderAdapter.PendingOrderViewHolder>() {
+
+    interface onItemClicked{
+        fun onItemClickedListener(position: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrderViewHolder {
         val binding = PendingOrdersItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,12 +33,11 @@ class PendingOrderAdapter(
 
     inner class PendingOrderViewHolder(private val binding: PendingOrdersItemBinding): RecyclerView.ViewHolder(binding.root) {
         private var isAccepted = false
+        @SuppressLint("SetTextI18n")
         fun bind(position: Int) {
             binding.apply {
                 customerName.text = customerNames[position]
-                quantityPending.text = quantity[position]
-                orderedFoodItemImage.setImageResource(foodImage[position])
-
+                totalAmt.text = total[position]
                 orderAcceptButton.apply {
                     if(!isAccepted){
                         text = "Accept"
@@ -51,7 +56,9 @@ class PendingOrderAdapter(
                         }
                     }
                 }
-
+                itemView.setOnClickListener {
+                    itemClicked.onItemClickedListener(position)
+                }
             }
         }
         private fun showToast(message: String){

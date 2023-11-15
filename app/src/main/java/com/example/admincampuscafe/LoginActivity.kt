@@ -23,8 +23,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private lateinit var email: String
-    private var username: String? = null
-    private var restaurantName: String? = null
     private lateinit var password: String
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -44,8 +42,6 @@ class LoginActivity : AppCompatActivity() {
         database = Firebase.database.reference
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
-
-
         binding.loginButton.setOnClickListener {
             email = binding.emailUser.text.toString().trim()
             password = binding.passwordUser.text.toString().trim()
@@ -58,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
                         val user = auth.currentUser
                         Toast.makeText(this, "Login Successful", LENGTH_SHORT).show()
                         updateUi(user)
+                        finish()
                     } else {
                         Toast.makeText(this, "Create An Account", LENGTH_SHORT).show()
                         startActivity(Intent(this, SignActivity::class.java))
@@ -83,7 +80,6 @@ class LoginActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
-
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
