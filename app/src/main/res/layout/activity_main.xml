@@ -72,14 +72,15 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/logout"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginTop="64dp"
         android:outlineSpotShadowColor="@color/textColor"
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="@+id/pendingOrderButton"
-        app:layout_constraintStart_toStartOf="@+id/pendingOrderButton"
-        app:layout_constraintTop_toTopOf="@+id/profileButton">
+        app:layout_constraintStart_toStartOf="@+id/orderStatusButton"
+        app:layout_constraintTop_toBottomOf="@+id/orderStatusButton">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -119,8 +120,8 @@
         android:layout_marginTop="64dp"
         android:outlineSpotShadowColor="@color/textColor"
         app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/profileButton"
-        app:layout_constraintStart_toStartOf="@+id/profileButton"
+        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+        app:layout_constraintStart_toStartOf="@+id/cardView2"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -191,48 +192,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView10" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/profileButton"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="64dp"
-        android:outlineSpotShadowColor="@color/textColor"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/cardView2"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/orderStatusButton">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/cardgreen">
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/user"
-                app:layout_constraintEnd_toEndOf="@+id/textView19"
-                app:layout_constraintStart_toStartOf="@+id/textView19"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Profile"
-                android:textColor="@color/textColor"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView9" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

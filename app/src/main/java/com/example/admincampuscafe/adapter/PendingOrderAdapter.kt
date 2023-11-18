@@ -4,22 +4,28 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.admincampuscafe.databinding.PendingOrdersItemBinding
+import com.example.campuscafe.model.OrderDetails
 
 class PendingOrderAdapter(
     private val context: Context,
-    private val customerNames: MutableList<String>,
-    private val total: MutableList<String>,
-    private val itemClicked: onItemClicked
-): RecyclerView.Adapter<PendingOrderAdapter.PendingOrderViewHolder>() {
+    private val orderDetailsList: MutableList<OrderDetails>,
+    private val itemClicked: OnItemClicked
+) : RecyclerView.Adapter<PendingOrderAdapter.PendingOrderViewHolder>() {
 
-    interface onItemClicked{
-        fun onItemClickedListener(position: Int)
-        fun onItemAcceptClickedListener(position: Int)
-        fun onItemDispatchClickedListener(position: Int)
+    interface OnItemClicked {
+        fun onItemClicked(position: Int, orderDetails: OrderDetails)
+        fun onItemAcceptClicked(position: Int, orderDetails: OrderDetails)
+        fun onItemDispatchClicked(position: Int, orderDetails: OrderDetails)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateData(updatedList: List<OrderDetails>) {
+        orderDetailsList.clear()
+        orderDetailsList.addAll(updatedList)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrderViewHolder {
@@ -28,40 +34,41 @@ class PendingOrderAdapter(
     }
 
     override fun onBindViewHolder(holder: PendingOrderViewHolder, position: Int) {
-        holder.bind(position)
+        holder.bind(orderDetailsList[position])
     }
 
-    override fun getItemCount(): Int = customerNames.size
+    override fun getItemCount(): Int = orderDetailsList.size
 
     inner class PendingOrderViewHolder(private val binding: PendingOrdersItemBinding): RecyclerView.ViewHolder(binding.root) {
         private var isAccepted = false
         @SuppressLint("SetTextI18n")
-        fun bind(position: Int) {
+        fun bind(orderDetails: OrderDetails) {
             binding.apply {
-                customerName.text = customerNames[position]
-                totalAmt.text = total[position]
+                customerName.text = orderDetails.username
+                totalAmt.text = orderDetails.total
                 orderAcceptButton.apply {
-                    if(!isAccepted){
-                        text = "Accept"
-                    }else{
-                        text = "Dispatch"
+                    text = if (!isAccepted) {
+                        "Accept"
+                    } else {
+                        "Dispatch"
                     }
-                    setOnClickListener{
-                        if (!isAccepted){
+                    setOnClickListener {
+                        if (!isAccepted) {
                             text = "Dispatch"
                             isAccepted = true
                             showToast("Order is Accepted")
-                            itemClicked.onItemAcceptClickedListener(position)
-                        }else{
-                            customerNames.removeAt(adapterPosition)
-                            notifyItemRemoved(adapterPosition)
+                            itemClicked.onItemAcceptClicked(adapterPosition, orderDetails)
+                        } else {
+                            val currentPosition = adapterPosition
+                            orderDetailsList.removeAt(currentPosition)
+                            notifyItemRemoved(currentPosition)
                             showToast("Order Is Dispatched")
-                            itemClicked.onItemDispatchClickedListener(position)
+                            itemClicked.onItemDispatchClicked(currentPosition, orderDetails)
                         }
                     }
                 }
                 itemView.setOnClickListener {
-                    itemClicked.onItemClickedListener(position)
+                    itemClicked.onItemClicked(adapterPosition, orderDetails)
                 }
             }
         }

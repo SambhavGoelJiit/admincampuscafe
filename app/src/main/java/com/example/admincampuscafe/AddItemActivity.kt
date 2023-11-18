@@ -12,8 +12,11 @@ import com.example.admincampuscafe.databinding.ActivityAddItemBinding
 import com.example.admincampuscafe.model.AllMenu
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 
 class AddItemActivity : AppCompatActivity() {
@@ -65,40 +68,52 @@ class AddItemActivity : AppCompatActivity() {
         val menuRef = database.getReference("menu")
         val newItemKey = menuRef.push().key
 
-        if (foodImageActUri != null) {
-            val storageRef = FirebaseStorage.getInstance().reference
-            val imageRef = storageRef.child("menu_images/${newItemKey}.jpg")
-            val uploadTask = imageRef.putFile(foodImageActUri!!)
+        val menuQuery = menuRef.orderByChild("foodName").equalTo(foodNameAct)
+        menuQuery.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Toast.makeText(this@AddItemActivity, "Item already exists", LENGTH_SHORT).show()
+                } else {
+                    if (foodImageActUri != null) {
+                        val storageRef = FirebaseStorage.getInstance().reference
+                        val imageRef = storageRef.child("menu_images/${newItemKey}.jpg")
+                        val uploadTask = imageRef.putFile(foodImageActUri!!)
 
-            uploadTask.addOnSuccessListener {
-                imageRef.downloadUrl.addOnSuccessListener { downloadUrl ->
-                    val newItem = AllMenu(
-                        newItemKey,
-                        foodName = foodNameAct,
-                        foodPrice = foodPriceAct,
-                        foodImage = downloadUrl.toString(),
-                        foodConsecutiveCount = foodCountCons,
-                        foodTime = foodTime
-                    )
-                    newItemKey?.let { key ->
-                        menuRef.child(key).setValue(newItem).addOnSuccessListener {
-                            Toast.makeText(this, "Data Uploaded", LENGTH_SHORT).show()
-                            startActivity(Intent(this, MainActivity::class.java))
-                            finish()
+                        uploadTask.addOnSuccessListener {
+                            imageRef.downloadUrl.addOnSuccessListener { downloadUrl ->
+                                val newItem = AllMenu(
+                                    newItemKey,
+                                    foodName = foodNameAct,
+                                    foodPrice = foodPriceAct,
+                                    foodImage = downloadUrl.toString(),
+                                    foodConsecutiveCount = foodCountCons,
+                                    foodTime = foodTime
+                                )
+                                newItemKey?.let { key ->
+                                    menuRef.child(key).setValue(newItem).addOnSuccessListener {
+                                        Toast.makeText(this@AddItemActivity, "Data Uploaded", LENGTH_SHORT).show()
+                                        startActivity(Intent(this@AddItemActivity, MainActivity::class.java))
+                                        finish()
+                                    }
+                                        .addOnFailureListener {
+                                            Toast.makeText(this@AddItemActivity, "Unable to Upload Data", LENGTH_SHORT).show()
+                                        }
+                                }
+                            }
                         }
                             .addOnFailureListener {
-                                Toast.makeText(this, "Unable to Upload Data", LENGTH_SHORT).show()
+                                Toast.makeText(this@AddItemActivity, "Unable to Upload Image", LENGTH_SHORT).show()
                             }
+                    } else {
+                        Toast.makeText(this@AddItemActivity, "Please select an Image", LENGTH_SHORT).show()
                     }
                 }
             }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Unable to Upload Image", LENGTH_SHORT).show()
-                }
-        } else {
-            Toast.makeText(this, "Please select An Image", LENGTH_SHORT).show()
-        }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        })
     }
+
 
     private val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         if (uri != null) {

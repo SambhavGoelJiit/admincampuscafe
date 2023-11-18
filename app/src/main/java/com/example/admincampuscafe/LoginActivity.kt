@@ -90,7 +90,6 @@ class LoginActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithCredential(credential)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-
                         Toast.makeText(
                             this,
                             "Google Login Successful",

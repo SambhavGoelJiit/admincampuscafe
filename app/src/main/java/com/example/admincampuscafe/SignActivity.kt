@@ -20,7 +20,6 @@ class SignActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var email: String
     private lateinit var username: String
-    private lateinit var restaurantName: String
     private lateinit var password: String
 
     private val binding: ActivitySignBinding by lazy {
@@ -37,10 +36,9 @@ class SignActivity : AppCompatActivity() {
         binding.createAccButton.setOnClickListener {
             email = binding.emailSignUp.text.toString().trim()
             username = binding.nameSignUp.text.toString().trim()
-            restaurantName = binding.restaurantSignUp.text.toString().trim()
             password = binding.passwordSignUp.text.toString().trim()
 
-            if (email.isBlank() || username.isBlank() || restaurantName.isBlank() || password.isBlank()) {
+            if (email.isBlank() || username.isBlank() || password.isBlank()) {
                 Toast.makeText(this, "All Fields Are Necessary", Toast.LENGTH_SHORT).show()
             } else {
                 createAccount(email, password)
@@ -51,10 +49,6 @@ class SignActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        val locationList = arrayOf("Hapur", "Noida", "Gzb")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, locationList)
-        val autoCompleteTextView = binding.listOfLocation
-        autoCompleteTextView.setAdapter(adapter)
     }
 
     private fun createAccount(email: String, password: String) {
@@ -75,9 +69,8 @@ class SignActivity : AppCompatActivity() {
     private fun saveUserData() {
         email = binding.emailSignUp.text.toString().trim()
         username = binding.nameSignUp.text.toString().trim()
-        restaurantName = binding.restaurantSignUp.text.toString().trim()
         password = binding.passwordSignUp.text.toString().trim()
-        val user = UserModel(email, username, restaurantName, password)
+        val user = UserModel(email, username, password)
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
         database.child("user").child(userId).setValue(user)
     }

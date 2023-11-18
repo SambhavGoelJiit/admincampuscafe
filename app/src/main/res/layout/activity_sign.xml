@@ -41,7 +41,7 @@
         android:id="@+id/emailSignUp"
         android:layout_width="327dp"
         android:layout_height="57dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edittextshape"
         android:drawableLeft="@drawable/mail"
         android:drawablePadding="15dp"
@@ -50,9 +50,9 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <EditText
         android:id="@+id/nameSignUp"
@@ -72,23 +72,6 @@
         app:layout_constraintTop_toBottomOf="@+id/emailSignUp" />
 
     <EditText
-        android:id="@+id/restaurantSignUp"
-        android:layout_width="325dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/edittextshape"
-        android:drawableLeft="@drawable/home"
-        android:drawablePadding="15dp"
-        android:elevation="5dp"
-        android:ems="10"
-        android:hint="Name Of Restaurant"
-        android:inputType="text"
-        android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/nameSignUp"
-        app:layout_constraintStart_toStartOf="@+id/nameSignUp"
-        app:layout_constraintTop_toBottomOf="@+id/nameSignUp" />
-
-    <EditText
         android:id="@+id/passwordSignUp"
         android:layout_width="325dp"
         android:layout_height="57dp"
@@ -101,9 +84,9 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/restaurantSignUp"
-        app:layout_constraintStart_toStartOf="@+id/restaurantSignUp"
-        app:layout_constraintTop_toBottomOf="@+id/restaurantSignUp" />
+        app:layout_constraintEnd_toEndOf="@+id/nameSignUp"
+        app:layout_constraintStart_toStartOf="@+id/nameSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/nameSignUp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/createAccButton"
@@ -129,31 +112,5 @@
         app:layout_constraintEnd_toEndOf="@+id/createAccButton"
         app:layout_constraintStart_toStartOf="@+id/createAccButton"
         app:layout_constraintTop_toBottomOf="@+id/createAccButton" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="327dp"
-        android:layout_height="57dp"
-        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        android:layout_marginTop="16dp"
-        app:boxStrokeWidthFocused="0dp"
-        android:background="@drawable/edittextshape"
-        app:boxStrokeWidth="0dp"
-        android:elevation="5dp"
-        app:endIconTint="@color/black"
-        app:endIconDrawable="@drawable/arrow_down"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
-        
-        <AutoCompleteTextView
-            android:id="@+id/listOfLocation"
-            android:inputType="none"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Choose Your Location"
-            android:background="@drawable/edittextshape"
-            android:gravity="center_vertical"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
