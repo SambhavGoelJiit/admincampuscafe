@@ -40,24 +40,23 @@ class PendingOrderAdapter(
     override fun getItemCount(): Int = orderDetailsList.size
 
     inner class PendingOrderViewHolder(private val binding: PendingOrdersItemBinding): RecyclerView.ViewHolder(binding.root) {
-        private var isAccepted = false
         @SuppressLint("SetTextI18n")
         fun bind(orderDetails: OrderDetails) {
             binding.apply {
                 customerName.text = orderDetails.username
                 totalAmt.text = orderDetails.total
                 orderAcceptButton.apply {
-                    text = if (!isAccepted) {
+                    text = if (!orderDetails.orderAccepted) {
                         "Accept"
                     } else {
                         "Dispatch"
                     }
                     setOnClickListener {
-                        if (!isAccepted) {
+                        if (!orderDetails.orderAccepted) {
                             text = "Dispatch"
-                            isAccepted = true
                             showToast("Order is Accepted")
                             itemClicked.onItemAcceptClicked(adapterPosition, orderDetails)
+                            updateData(orderDetailsList)
                         } else {
                             val currentPosition = adapterPosition
                             orderDetailsList.removeAt(currentPosition)
