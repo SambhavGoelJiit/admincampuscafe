@@ -69,7 +69,7 @@ class PendingOrderActivity : AppCompatActivity(), PendingOrderAdapter.OnItemClic
                 for (orderSnapshot in snapshot.children) {
                     val orderDetails = orderSnapshot.getValue(OrderDetails::class.java)
                     orderDetails?.let {
-                        if (!it.orderAccepted) {
+                        if (!it.orderDispatched) {
                             listOfOrderItem.add(it)
                         }
                     }
