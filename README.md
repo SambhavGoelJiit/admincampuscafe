@@ -28,134 +28,157 @@ Open the Project in Android Studio. For installation Follow this
 - Open CampusCafe App and Admin App into the Emulator or Physical Device.
 
 ## 📸 App Screenshots
+<table>
+  <tr>
+    <td>Login Page</td>
+    <td>Sign Up Page</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/1.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/2.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Home Fragment</td>
+    <td>Cart Fragment(Empty Initially)</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/3.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/4.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Search Fragment</td>
+    <td>History Fragment</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/5.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/6.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Particular Order Details1</td>
+    <td>Particular Order Details2</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/7.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/8.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Profile Fragment</td>
+    <td>Item Added To Cart</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/9.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/10.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Item In Cart</td>
+    <td>PayoutActivity</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/11.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/12.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Order Placed Upon Click</td>
+    <td>Order Status</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/13.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/14.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>ETA Visible After Accepted</td>
+    <td>Order Dispatched</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/15.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/16.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Order Completed</td>
+    <td>Admin Home</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/17.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/18.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
   <table>
-        <tr>
-          <td>Login Page</td>
-           <td>Sign Up Page</td>
-           <td>Home Fragment</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/1.png" width=270 height=300></td>
-          <td><img src="./Screenshots/2.png" width=270 height=300></td>
-          <td><img src="./Screenshots/3.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Cart Fragment(Empty Initially)</td>
-           <td>Search Fragment</td>
-           <td>History Fragment</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/4.png" width=270 height=300></td>
-          <td><img src="./Screenshots/5.png" width=270 height=300></td>
-          <td><img src="./Screenshots/6.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Particular Order Details1</td>
-           <td>Particular Order Details2</td>
-           <td>Profile Fragment</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/7.png" width=270 height=300></td>
-          <td><img src="./Screenshots/8.png" width=270 height=300></td>
-          <td><img src="./Screenshots/9.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Item Added To Cart</td>
-           <td>Item In Cart</td>
-           <td>PayoutActivity</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/10.png" width=270 height=300></td>
-          <td><img src="./Screenshots/11.png" width=270 height=300></td>
-          <td><img src="./Screenshots/12.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Order Placed Upon Click</td>
-           <td>Order Status</td>
-           <td>ETA Visible After Accepted</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/13.png" width=270 height=300></td>
-          <td><img src="./Screenshots/14.png" width=270 height=300></td>
-          <td><img src="./Screenshots/15.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Order Dispatched</td>
-           <td>Order Completed</td>
-           <td>Admin Home</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/16.png" width=270 height=300></td>
-          <td><img src="./Screenshots/17.png" width=270 height=300></td>
-          <td><img src="./Screenshots/18.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-           <td>Add Item Menu</td>
-           <td>Handling Already Existing Item</td>
-           <td>Uploading New Item</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/19.png" width=270 height=300></td>
-          <td><img src="./Screenshots/20.png" width=270 height=300></td>
-          <td><img src="./Screenshots/21.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-           <td>New Item Uploaded</td>
-           <td>Inventory</td>
-           <td>Order Status Upon Arrival</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/22.png" width=270 height=300></td>
-          <td><img src="./Screenshots/23.png" width=270 height=300></td>
-          <td><img src="./Screenshots/24.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Order Status After Acceptance</td>
-           <td>Completed Orders</td>
-           <td>handling Insufficient Balance</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/25.png" width=270 height=300></td>
-          <td><img src="./Screenshots/26.png" width=270 height=300></td>
-          <td><img src="./Screenshots/27.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Adding Multiple Items In Cart</td>
-           <td>Handling Cart Redundancy</td>
-           <td>Not Clicked Payment Whilst Admin Removed Any Item In Order From Inventory</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/28.png" width=270 height=300></td>
-          <td><img src="./Screenshots/29.png" width=270 height=300></td>
-          <td><img src="./Screenshots/30.png" width=270 height=300></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Item Availability Handeled</td>
-        </tr>
-        <tr>
-          <td><img src="./Screenshots/31.png" width=270 height=300></td>
-        </tr>
-      </table>
+  <tr>
+    <td>Add Item Menu</td>
+    <td>Handling Already Existing Item</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/19.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/20.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Uploading New Item</td>
+    <td>New Item Uploaded</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/21.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/22.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Inventory</td>
+    <td>Order Status Upon Arrival</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/23.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/24.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Order Status After Acceptance</td>
+    <td>Completed Orders</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/25.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/26.png" width="250px" height="500px" /></td>
+    
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>handling Insufficient Balance</td>
+    <td>Adding Multiple Items In Cart</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/27.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/28.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Handling Cart Redundancy</td>
+    <td>Item Availability Handeled</td>
+  </tr>
+  <tr>
+    <td><img src="./Screenshots/29.png" width="250px" height="500px" /></td>
+    <td><img src="./Screenshots/31.png" width="250px" height="500px" /></td>
+  </tr>
+</table>
 
 ## About CampusCafe
 
